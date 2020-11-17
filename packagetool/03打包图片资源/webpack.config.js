@@ -37,7 +37,8 @@ module.exports ={
 
                     // 默认url会以es6语法去解析图片路径 而html-loader是以commonjs语法去编译的 
                     // 所以这里要关闭es6语法webpack4.0版本
-                    name:'[hash:10].[ext]'
+                    name:'[hash:10].[ext]',
+                    esModule:false
                 }
             },
             {
