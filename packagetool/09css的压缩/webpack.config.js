@@ -79,7 +79,7 @@ module.exports ={
             template:'./src/index.html'
         }),
         // 在这里引入打包css文件的插件
-        // 这样的好处是键css文件抽离出来减小了js文件过大请求慢等问题
+        // 这样的好处是css文件抽离出来减小了js文件过大请求慢等问题
         new MiniCssExtractPlugin(
             {   
                 // 给输出文件命名
