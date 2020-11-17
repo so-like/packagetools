@@ -4,6 +4,7 @@
 const {resolve} = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 // 设置node.js的环境变量
 process.env.NODE_ENV = 'development';
@@ -84,10 +85,15 @@ module.exports ={
                 // 给输出文件命名
                 filename:'css/built.css'
             }
-        )
+        ),
+
+        // 压缩css需要用到一个插件 optimize-css-assets-webpack-plugin 
+        // 会将css压缩成一行
+        // 调用optimize-css-assets-webpack-plugin来压缩css文件
+        new OptimizeCssAssetsWebpackPlugin()
 
 
-        // 压缩css需要用到一个插件 optimize-css-asset-webpack-plugin
+        
     ],
     mode:'development'
 }
