@@ -8,13 +8,13 @@ process.env.NODE_ENV = 'production';
 
 module.exports = {
   // 单入口 也就是单页面配置
-  // entry: './src/js/index.js',
+  entry: './src/js/index.js',
 
   // 多入口 以对象的形式  也就是多页面配置 有一个入口最终输出就会多一个bundle
-  entry:{
-    main:'./src/js/index.js',
-    test:'./src/js/test.js'
-  },
+  // entry:{
+  //   main:'./src/js/index.js',
+  //   test:'./src/js/test.js'
+  // },
   output: {
     // 这里用name的话到时候输出就会取文件名
     filename: 'js/[name].[contenthash:10].js',
