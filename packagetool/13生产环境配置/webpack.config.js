@@ -15,36 +15,23 @@ const CommonCssLoader = [
                     {
                         loader:'postcss-loader',
                         options:{
-                            postcssOptions:{
-                                plugins:[
-                                    [   
-                                        // 使用前应该在package.json文件中配置Browserlist文件
-                                        // "browserslist": {
-                                        //     "development": [
-                                        //       "last 1 chrome version",
-                                        //       "last 1 firefox version",
-                                        //       "last 1 safari version"
-                                        //     ],
-                                        //     "production": [
-                                        //       ">0.2%",
-                                        //       "not dead",
-                                        //       "not op_mini all"
-                                        //     ]
-                                        //   },
-                                        {   
-                                            // 缩进使用postcss规则
-                                            ident: "postcss"
-                                        }
-                                    ]
-                                ]
-                            }
+                            postcssOptions: {
+                                plugins: [
+                                  [
+                                    'postcss-preset-env',
+                                    {
+                                      ident: "postcss"
+                                    },
+                                  ],
+                                ],
+                              },
                         }
                     }
 ]
 module.exports = {
-    entry:'./src/index.js',
+    entry:'./src/js/index.js',
     output:{
-        filename:'built.js',
+        filename:'js/built.js',
         path:resolve(__dirname,'build')
     },
     module:{
@@ -65,9 +52,7 @@ module.exports = {
             // 图片的处理
             {
                 test:/.(jpg|png|gif)$/,
-                use:[
-                    'url-loader'
-                ],
+                loader:'url-loader',
                 // html中的图片时用commonjs来处理的 所以这里也要用commonjs语法所以要关闭es6语法
                 options:{
                     limit:8*1024,
@@ -79,9 +64,7 @@ module.exports = {
             // 处理html中的图片
             {
                 test:/\.html$/,
-                use:[
-                    'html-loader'
-                ]
+                loader:'html-loader'
             },
 
             // 处理其他样式资源
@@ -114,12 +97,12 @@ module.exports = {
                 exclude:/node_modules/,
                 loader:'babel-loader',
                 options:{
-                    preset:[
+                    presets:[
                         [
                             '@babel/preset-env',
                             {   
-                                useBuildIns:'usage',
-                                coerjs:{
+                                useBuiltIns:'usage',
+                                corejs:{
                                     version:3,
                                 },
                                 targets:{

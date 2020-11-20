@@ -41,7 +41,8 @@ module.exports ={
 
                         ]
 
-                    ]
+                    ],
+                    cacheDirectory:true
                 }
             },
             // 2.全部兼容es6语法 --> @babel/polyfill 一种比较暴力的方法兼容所有es6语法
