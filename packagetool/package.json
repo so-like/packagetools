@@ -34,7 +34,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "browserslist": {
     "development": [
@@ -49,7 +50,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "env":{
+      "browser":true
+    }
   },
   "dependencies": {},
   "sideEffects": [
